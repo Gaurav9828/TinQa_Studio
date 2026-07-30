@@ -1,0 +1,19 @@
+.card {
+    padding: 24px;
+
+    background: var(--bg-primary);
+
+    border: 1px solid var(--border-light);
+
+    border-radius: 20px;
+
+    ul {
+        margin-top: 16px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        list-style: none;
+    }
+}

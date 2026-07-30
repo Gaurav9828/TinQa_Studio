@@ -1,0 +1,42 @@
+.page {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    background: var(--bg-primary);
+}
+
+.content {
+    display: flex;
+    flex: 1;
+
+    overflow: hidden;
+}
+
+.canvasArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex: 1;
+
+    padding: 24px;
+
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 320px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 24px;
+
+    background: var(--bg-card);
+
+    border-left: 1px solid var(--border-light);
+}

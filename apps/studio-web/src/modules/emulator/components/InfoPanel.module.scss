@@ -1,0 +1,21 @@
+.panel {
+    padding: 24px;
+
+    background: var(--bg-primary);
+
+    border: 1px solid var(--border-light);
+
+    border-radius: 20px;
+
+    h3 {
+        margin-bottom: 16px;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        list-style: none;
+    }
+}

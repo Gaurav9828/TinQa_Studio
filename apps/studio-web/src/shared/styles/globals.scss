@@ -1,0 +1,8 @@
+body {
+    background: var(--bg-primary);
+}
+
+::selection {
+    background: var(--accent-blue);
+    color: white;
+}

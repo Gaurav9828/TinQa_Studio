@@ -1,0 +1,46 @@
+{
+    "compilerOptions": {
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+        "target": "ES2023",
+        "lib": ["ES2023", "DOM"],
+
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+
+        "jsx": "react-jsx",
+
+        "types": ["vite/client"],
+        "ignoreDeprecations": "6.0",
+
+        "baseUrl": ".",
+
+        "paths": {
+            "@app/*": ["src/app/*"],
+            "@assets/*": ["src/assets/*"],
+            "@core/*": ["src/core/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@modules/*": ["src/modules/*"],
+            "@shared/*": ["src/shared/*"]
+        },
+
+        "allowArbitraryExtensions": true,
+        "allowImportingTsExtensions": true,
+        "verbatimModuleSyntax": true,
+        "moduleDetection": "force",
+
+        "strict": true,
+
+        "noEmit": true,
+
+        "skipLibCheck": true,
+
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+
+        "erasableSyntaxOnly": true
+    },
+
+    "include": ["src"]
+}

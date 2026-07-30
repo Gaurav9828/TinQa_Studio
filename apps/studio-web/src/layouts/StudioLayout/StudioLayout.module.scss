@@ -1,0 +1,35 @@
+.layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background: var(--bg-primary);
+}
+
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.header {
+    height: 72px;
+    flex-shrink: 0;
+}
+
+.workspace {
+    flex: 1;
+    overflow: auto;
+}
+
+.statusBar {
+    height: 32px;
+    flex-shrink: 0;
+}
