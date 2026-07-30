@@ -6,8 +6,8 @@ const API_BASE_URL = 'http://localhost:21324/api/v1/led';
 
 type ThemeItem = string | { id: string; name: string };
 
-// Generate multiples of 16 from 16 to 160
-const GRID_STEP_OPTIONS = Array.from({ length: 10 }, (_, i) => (i + 1) * 16);
+// Generate multiples of 16 from 16 to 1600
+const GRID_STEP_OPTIONS = Array.from({ length: 100 }, (_, i) => (i + 1) * 16);
 
 export const Toolbar: React.FC = () => {
     const [themes, setThemes] = useState<ThemeItem[]>([]);
@@ -171,8 +171,8 @@ export const Toolbar: React.FC = () => {
 
     // Commit Grid Resizing to Python Backend
     const applyGridChange = async (newW: number, newH: number) => {
-        const targetW = Math.max(1, newW);
-        const targetH = Math.max(1, newH);
+        const targetW = Math.min(1600, Math.max(16, newW));
+        const targetH = Math.min(1600, Math.max(16, newH));
 
         setDimensions(targetW, targetH);
 
@@ -194,7 +194,6 @@ export const Toolbar: React.FC = () => {
         <div className={styles.toolbar}>
             {/* Playback Controls */}
             <div className={styles.group}>
-                {/* Single Power Button (Green when ON, Red when OFF) */}
                 <button
                     className={`${styles.btn} ${isPowerOn ? styles.powerOnBtn : styles.powerOffBtn}`}
                     onClick={handlePowerToggle}
@@ -207,7 +206,6 @@ export const Toolbar: React.FC = () => {
                     ⏻ {isPowerOn ? 'ON' : 'OFF'}
                 </button>
 
-                {/* Single Play/Pause Toggle */}
                 <button
                     className={`${styles.btn} ${isPlaying ? styles.activeBtn : ''}`}
                     onClick={handlePlayPauseToggle}
@@ -217,7 +215,6 @@ export const Toolbar: React.FC = () => {
                     {isPlaying ? '⏸ Pause' : '▶ Play'}
                 </button>
 
-                {/* Stop Button */}
                 <button
                     className={`${styles.btn} ${!isPlaying && !isPowerOn ? styles.activeBtn : ''}`}
                     onClick={handleStop}
@@ -249,7 +246,7 @@ export const Toolbar: React.FC = () => {
                 </select>
             </div>
 
-            {/* Single Custom Color Picker (No presets) */}
+            {/* Single Custom Color Picker */}
             <div className={styles.group}>
                 <label htmlFor="color-picker">Color:</label>
                 <input
@@ -305,11 +302,12 @@ export const Toolbar: React.FC = () => {
                         <input
                             type="number"
                             min="16"
-                            max="160"
+                            max="1600"
                             value={customWVal}
                             disabled={isGridEditingDisabled}
-                            onChange={(e) => setCustomWVal(parseInt(e.target.value, 10) || 0)}
+                            onChange={(e) => setCustomWVal(parseInt(e.target.value, 10) || 16)}
                             onBlur={() => applyGridChange(customWVal, height)}
+                            onKeyDown={(e) => e.key === 'Enter' && applyGridChange(customWVal, height)}
                             className={styles.numInput}
                         />
                         <button
@@ -349,11 +347,12 @@ export const Toolbar: React.FC = () => {
                         <input
                             type="number"
                             min="16"
-                            max="160"
+                            max="1600"
                             value={customHVal}
                             disabled={isGridEditingDisabled}
-                            onChange={(e) => setCustomHVal(parseInt(e.target.value, 10) || 0)}
+                            onChange={(e) => setCustomHVal(parseInt(e.target.value, 10) || 16)}
                             onBlur={() => applyGridChange(width, customHVal)}
+                            onKeyDown={(e) => e.key === 'Enter' && applyGridChange(width, customHVal)}
                             className={styles.numInput}
                         />
                         <button

@@ -45,8 +45,8 @@ export const useEmulatorStore = create<EmulatorState>((set) => ({
 
     setDimensions: (width, height) =>
         set({
-            width: Math.max(1, Math.min(256, width)),
-            height: Math.max(1, Math.min(256, height)),
+            width: Math.max(1, Math.min(1600, width)),
+            height: Math.max(1, Math.min(1600, height)),
         }),
     setStats: (fps, isConnected) => set({ fps, isConnected }),
     setPower: (isPowerOn) => set({ isPowerOn }),
