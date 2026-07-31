@@ -73,3 +73,5 @@ export default defineConfig([
 ])
 
 ```
+# File Structure: 
+tree -I "node_modules|build|dist|.git|.next|.cache"

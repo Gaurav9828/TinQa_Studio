@@ -1,19 +1,12 @@
 {
-    "name": "tinqa-platform",
-    "private": true,
-    "packageManager": "yarn@1.22.22",
-    "workspaces": [
-        "apps/*",
-        "packages/*"
-    ],
-    "scripts": {
-        "dev": "yarn workspace studio-web dev",
-        "build": "yarn workspace studio-web build",
-        "lint": "yarn workspace studio-web lint",
-        "preview": "yarn workspace studio-web preview"
-    },
-    "devDependencies": {
-        "sass-embedded": "^1.100.0",
-        "vite-tsconfig-paths": "^6.1.1"
-    }
+  "name": "tinqa-studio-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "yarn --cwd apps/studio-web dev",
+    "build": "yarn --cwd apps/studio-web build"
+  }
 }
